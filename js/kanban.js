@@ -16,6 +16,12 @@ add_btn.addEventListener('click', () => {
 });
 
 const create_item = () => {
+  var item = document.createElement('div');
+  item.classList.add('item');
+  item.id = `item-${order}`;
+  item.addEventListener("dragstart", (event) => {
+    item.dataTransfer.setData("text", event.target.id)
+  });
 };
 
 document.querySelectorAll('.drop').forEach(element => {
